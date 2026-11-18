@@ -1,0 +1,22 @@
+# Experiment caches
+results/**/cache/
+
+# NumPy generated data
+*.npz
+*.npy
+
+# Python
+__pycache__/
+*.pyc
+
+# Model weights
+*.pth
+*.pt
+*.ckpt
+
+\data
+02_tracking.ipynb
+03_robustness.ipynb
+
+# Material not used in the slides (kept locally, not versioned)
+archive/
