@@ -118,15 +118,15 @@ Median alignment rescales relative-depth predictions to the median of the ground
 | DINOv2-Small + head | 0.1273 | 0.4656 | 0.8448 | 7.6465 |
 | UNet-ResNet34 | 0.2117 | 0.7608 | 0.6774 | 4.2129 |
 
-The complete benchmark, including unaligned measurements, is available in [`nyu_results.csv`](distance-estimation/nyu_results.csv).
+The complete benchmark, including unaligned measurements, is available in [`nyu_results.csv`](nyu_results.csv).
 
 #### Qualitative NYU comparison
 
-![NYU qualitative depth comparison](distance-estimation/outputs/nyu_qualitative.png)
+![NYU qualitative depth comparison](outputs/nyu_qualitative.png)
 
 #### Relative-error comparison
 
-![NYU relative error comparison](distance-estimation/outputs/nyu_errors.png)
+![NYU relative error comparison](outputs/nyu_errors.png)
 
 ### Real object-distance evaluation
 
@@ -144,17 +144,17 @@ The live notebook also demonstrated DINOv3 distances on real camera scenes and u
 
 ### Live demo
 
-![Live iPhone and webcam 3D distance demo](distance-estimation/outputs/demo_thumb.jpg)
+![Live iPhone and webcam 3D distance demo](outputs/demo_thumb.jpg)
 
 The live demo detects objects, displays each object's estimated depth, and draws a 3D distance line between detected objects. A full-depth map is also shown as an overlay.
 
 ### Still-image outputs
 
-![Distance prediction: IMG_2797](distance-estimation/outputs/pred_2797.jpg)
+![Distance prediction: IMG_2797](outputs/pred_2797.jpg)
 
-![Distance prediction: IMG_2801](distance-estimation/outputs/pred_2801.jpg)
+![Distance prediction: IMG_2801](outputs/pred_2801.jpg)
 
-![Distance prediction: IMG_2810](distance-estimation/outputs/pred_2810.jpg)
+![Distance prediction: IMG_2810](outputs/pred_2810.jpg)
 
 > Reported values depend on camera focal length, depth scaling, image resolution, object-center sampling, and the quality of the YOLO detections. Median alignment and scale factors are therefore used for comparison and must be calibrated for a new camera.
 
@@ -193,7 +193,7 @@ cd distance-estimation
 jupyter lab
 ```
 
-Open [`dinov3_depth_distance_v1.ipynb`](distance-estimation/dinov3_depth_distance_v1.ipynb) and run the cells in order.
+Open [`dinov3_depth_distance_v1.ipynb`](dinov3_depth_distance_v1.ipynb) and run the cells in order.
 
 Important notebook inputs:
 
@@ -251,7 +251,7 @@ MacOS may need Camera permission for the Terminal or VS Code process. The iPhone
 
 ## Streaming an iPhone Camera with Flask
 
-[`stream_iphone.py`](distance-estimation/stream_iphone.py) exposes a macOS camera through a local MJPEG server. Run it from `distance-estimation/`:
+[`stream_iphone.py`](stream_iphone.py) exposes a macOS camera through a local MJPEG server. Run it from `distance-estimation/`:
 
 ```bash
 python stream_iphone.py
