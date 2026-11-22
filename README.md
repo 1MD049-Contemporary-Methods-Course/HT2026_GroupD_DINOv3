@@ -2,7 +2,7 @@
 
 In this project we investigate different applications of DINOv3:
 - drone tracking and distance estimation
-- [Real-time 3D object distance estimation from a single RGB camera](./distance-estimation/)
+- [Real-time 3D object distance estimation from a single RGB camera](./distance-estimation/) (Fahim)
 - loop closure and long-term place recognition
 - near and far medical images
 
