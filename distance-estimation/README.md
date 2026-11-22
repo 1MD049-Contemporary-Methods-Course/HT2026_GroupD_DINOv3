@@ -13,25 +13,18 @@ This README documents the **Real-Time 3D Object Distance Estimation** part.
 
 The implementation estimates scene depth from one RGB image or video frame, back-projects detected object centers into 3D camera coordinates, and calculates the distance between objects.
 
-**Pipeline:**
+**Pipeline Architecture:**
 
-```text
-RGB image/video
-      |
-      v
-YOLO 11 object detection
-      |
-      v
-DINOv3 depth model + lightweight decoder
-      |
-      v
-Depth values sampled at object centers
-      |
-      v
-Camera back-projection
-      |
-      v
-Euclidean 3D distance between objects
+```mermaid
+flowchart TD
+    A["RGB Frame (H × W × 3)"] --> B["YOLO11s Object Detector<br/>2D Boxes & Centers (u, v)"]
+    A --> C["Frozen DINOv3 Backbone<br/>(ViT-S/16 or ViT-B/16)"]
+    C --> D["Lightweight Conv Decoder<br/>+ Metric Scale Factor"]
+    D --> E["Dense Depth Map Z (H × W)"]
+    B --> F["Inner-Box Depth Sampling<br/>(35th Percentile Core Z)"]
+    E --> F
+    F --> G["Pinhole 3D Back-Projection<br/>P = ((u - cx)·Z/fx, (v - cy)·Z/fy, Z)"]
+    G --> H["Pairwise 3D Euclidean Distance<br/>d = ||P₁ - P₂||₂ (meters)"]
 ```
 
 The project:
