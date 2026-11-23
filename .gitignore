@@ -2,3 +2,22 @@
 /data
 
 .DS_Store
+
+
+# Experiment caches
+loop_closure/results/**/cache/
+
+# NumPy generated data
+*.npz
+*.npy
+
+# Python
+__pycache__/
+*.pyc
+
+# Model weights
+*.pth
+*.pt
+*.ckpt
+
+loop_closure/data
